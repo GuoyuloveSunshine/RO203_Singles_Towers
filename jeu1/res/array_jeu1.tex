@@ -1,0 +1,825 @@
+\documentclass{article}
+
+\usepackage[french]{babel}
+\usepackage [utf8] {inputenc} % utf-8 / latin1 
+\usepackage{multicol}
+
+\setlength{\hoffset}{-18pt}
+\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{9pt} % Marge gauche sur pages paires
+\setlength{\marginparwidth}{54pt} % Largeur de note dans la marge
+\setlength{\textwidth}{481pt} % Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} % Bon pour DOS
+\setlength{\marginparsep}{7pt} % Séparation de la marge
+\setlength{\topmargin}{0pt} % Pas de marge en haut
+\setlength{\headheight}{13pt} % Haut de page
+\setlength{\headsep}{10pt} % Entre le haut de page et le texte
+\setlength{\footskip}{27pt} % Bas de page + séparation
+\setlength{\textheight}{668pt} % Hauteur de la zone de texte (25cm)
+
+\begin{document}
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+input.txt & 0.01 & 
+$\times$
+ & 2.35 & 
+$\times$
+\\
+input2.txt & 0.0 & 
+$\times$
+ & 0.1 & 
+$\times$
+\\
+input3.txt & 0.02 & 
+$\times$
+ & 0.8 & 
+$\times$
+\\
+input4.txt & 4.04 & 
+$\times$
+ & 0.1 & 
+$\times$
+\\
+puzzle\_size10\_1.txt & 3.29 & 
+$\times$
+ & 17.53 & 
+\\
+puzzle\_size10\_10.txt & 0.06 & 
+$\times$
+ & 0.06 & 
+$\times$
+\\
+puzzle\_size10\_2.txt & 0.05 & 
+$\times$
+ & 16.22 & 
+\\
+puzzle\_size10\_3.txt & 0.05 & 
+$\times$
+ & 15.13 & 
+\\
+puzzle\_size10\_4.txt & 0.02 & 
+$\times$
+ & 0.02 & 
+$\times$
+\\
+puzzle\_size10\_5.txt & 0.05 & 
+$\times$
+ & 16.3 & 
+\\
+puzzle\_size10\_6.txt & 0.01 & 
+$\times$
+ & 16.61 & 
+\\
+puzzle\_size10\_7.txt & 0.03 & 
+$\times$
+ & 17.36 & 
+\\
+puzzle\_size10\_8.txt & 0.02 & 
+$\times$
+ & 16.94 & 
+\\
+puzzle\_size10\_9.txt & 0.01 & 
+$\times$
+ & 15.89 & 
+\\
+puzzle\_size11\_1.txt & 0.45 & 
+$\times$
+ & 19.37 & 
+\\
+puzzle\_size11\_10.txt & 0.18 & 
+$\times$
+ & 15.99 & 
+\\
+puzzle\_size11\_2.txt & 0.01 & 
+$\times$
+ & 16.49 & 
+\\
+puzzle\_size11\_3.txt & 0.02 & 
+$\times$
+ & 18.41 & 
+\\
+puzzle\_size11\_4.txt & 0.09 & 
+$\times$
+ & 15.48 & 
+\\
+puzzle\_size11\_5.txt & 0.08 & 
+$\times$
+ & 15.25 & 
+\\
+puzzle\_size11\_6.txt & 0.06 & 
+$\times$
+ & 18.35 & 
+\\
+puzzle\_size11\_7.txt & 0.86 & 
+$\times$
+ & 15.83 & 
+\\
+puzzle\_size11\_8.txt & 0.19 & 
+$\times$
+ & 15.3 & 
+\\
+puzzle\_size11\_9.txt & 0.01 & 
+$\times$
+ & 18.49 & 
+\\
+puzzle\_size12\_1.txt & 0.13 & 
+$\times$
+ & 17.23 & 
+\\
+puzzle\_size12\_10.txt & 0.01 & 
+$\times$
+ & 15.12 & 
+\\
+puzzle\_size12\_2.txt & 0.04 & 
+$\times$
+ & 19.98 & 
+\\
+puzzle\_size12\_3.txt & 0.2 & 
+$\times$
+ & 22.35 & 
+\\
+puzzle\_size12\_4.txt & 0.34 & 
+$\times$
+ & 18.76 & 
+\\
+\hline\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+puzzle\_size12\_5.txt & 0.05 & 
+$\times$
+ & 16.57 & 
+\\
+puzzle\_size12\_6.txt & 0.02 & 
+$\times$
+ & 16.62 & 
+\\
+puzzle\_size12\_7.txt & 0.24 & 
+$\times$
+ & 18.38 & 
+\\
+puzzle\_size12\_8.txt & 0.14 & 
+$\times$
+ & 20.48 & 
+\\
+puzzle\_size12\_9.txt & 0.04 & 
+$\times$
+ & 16.56 & 
+\\
+puzzle\_size5\_1.txt & 0.02 & 
+$\times$
+ & 0.05 & 
+$\times$
+\\
+puzzle\_size5\_10.txt & 0.04 & 
+$\times$
+ & 0.91 & 
+$\times$
+\\
+puzzle\_size5\_2.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_3.txt & 0.04 & 
+$\times$
+ & 0.8 & 
+$\times$
+\\
+puzzle\_size5\_4.txt & 0.02 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_5.txt & 0.01 & 
+$\times$
+ & 0.12 & 
+$\times$
+\\
+puzzle\_size5\_6.txt & 0.02 & 
+$\times$
+ & 0.15 & 
+$\times$
+\\
+puzzle\_size5\_7.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_8.txt & 0.06 & 
+$\times$
+ & 0.58 & 
+$\times$
+\\
+puzzle\_size5\_9.txt & 0.06 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size6\_1.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size6\_10.txt & 0.03 & 
+$\times$
+ & 0.74 & 
+$\times$
+\\
+puzzle\_size6\_2.txt & 0.04 & 
+$\times$
+ & 4.65 & 
+$\times$
+\\
+puzzle\_size6\_3.txt & 0.03 & 
+$\times$
+ & 1.19 & 
+$\times$
+\\
+puzzle\_size6\_4.txt & 0.3 & 
+$\times$
+ & 0.32 & 
+$\times$
+\\
+puzzle\_size6\_5.txt & 0.02 & 
+$\times$
+ & 0.19 & 
+$\times$
+\\
+puzzle\_size6\_6.txt & 0.06 & 
+$\times$
+ & 6.55 & 
+$\times$
+\\
+puzzle\_size6\_7.txt & 0.04 & 
+$\times$
+ & 2.95 & 
+$\times$
+\\
+puzzle\_size6\_8.txt & 0.04 & 
+$\times$
+ & 7.91 & 
+$\times$
+\\
+puzzle\_size6\_9.txt & 0.03 & 
+$\times$
+ & 1.3 & 
+$\times$
+\\
+puzzle\_size7\_1.txt & 0.02 & 
+$\times$
+ & 14.43 & 
+$\times$
+\\
+puzzle\_size7\_10.txt & 0.01 & 
+$\times$
+ & 9.3 & 
+$\times$
+\\
+puzzle\_size7\_2.txt & 0.12 & 
+$\times$
+ & 6.12 & 
+$\times$
+\\
+puzzle\_size7\_3.txt & 0.04 & 
+$\times$
+ & 15.06 & 
+\\
+puzzle\_size7\_4.txt & 0.08 & 
+$\times$
+ & 15.1 & 
+\\
+\hline\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+puzzle\_size7\_5.txt & 0.01 & 
+$\times$
+ & 15.23 & 
+\\
+puzzle\_size7\_6.txt & 0.02 & 
+$\times$
+ & 2.75 & 
+$\times$
+\\
+puzzle\_size7\_7.txt & 0.02 & 
+$\times$
+ & 5.02 & 
+$\times$
+\\
+puzzle\_size7\_8.txt & 0.02 & 
+$\times$
+ & 15.09 & 
+\\
+puzzle\_size7\_9.txt & 0.01 & 
+$\times$
+ & 0.88 & 
+$\times$
+\\
+puzzle\_size8\_1.txt & 0.11 & 
+$\times$
+ & 15.06 & 
+\\
+puzzle\_size8\_10.txt & 0.1 & 
+$\times$
+ & 11.41 & 
+$\times$
+\\
+puzzle\_size8\_2.txt & 0.04 & 
+$\times$
+ & 15.65 & 
+\\
+puzzle\_size8\_3.txt & 0.01 & 
+$\times$
+ & 15.9 & 
+\\
+puzzle\_size8\_4.txt & 0.01 & 
+$\times$
+ & 15.42 & 
+\\
+puzzle\_size8\_5.txt & 0.02 & 
+$\times$
+ & 17.86 & 
+\\
+puzzle\_size8\_6.txt & 0.01 & 
+$\times$
+ & 15.69 & 
+\\
+puzzle\_size8\_7.txt & 0.04 & 
+$\times$
+ & 15.56 & 
+\\
+puzzle\_size8\_8.txt & 0.01 & 
+$\times$
+ & 16.03 & 
+\\
+puzzle\_size8\_9.txt & 0.05 & 
+$\times$
+ & 15.43 & 
+\\
+puzzle\_size9\_1.txt & 0.13 & 
+$\times$
+ & 15.1 & 
+\\
+puzzle\_size9\_10.txt & 0.06 & 
+$\times$
+ & 15.53 & 
+\\
+puzzle\_size9\_2.txt & 0.02 & 
+$\times$
+ & 15.61 & 
+\\
+puzzle\_size9\_3.txt & 1.76 & 
+$\times$
+ & 16.16 & 
+\\
+puzzle\_size9\_4.txt & 0.02 & 
+$\times$
+ & 16.54 & 
+\\
+puzzle\_size9\_5.txt & 0.02 & 
+$\times$
+ & 16.46 & 
+\\
+puzzle\_size9\_6.txt & 0.01 & 
+$\times$
+ & 15.42 & 
+\\
+puzzle\_size9\_7.txt & 0.01 & 
+$\times$
+ & 16.26 & 
+\\
+puzzle\_size9\_8.txt & 0.02 & 
+$\times$
+ & 15.8 & 
+\\
+puzzle\_size9\_9.txt & 0.1 & 
+$\times$
+ & 16.67 & 
+\\
+input.txt & 0.01 & 
+$\times$
+ & 2.35 & 
+$\times$
+\\
+input2.txt & 0.0 & 
+$\times$
+ & 0.1 & 
+$\times$
+\\
+input3.txt & 0.02 & 
+$\times$
+ & 0.8 & 
+$\times$
+\\
+input4.txt & 4.04 & 
+$\times$
+ & 0.1 & 
+$\times$
+\\
+puzzle\_size10\_1.txt & 3.29 & 
+$\times$
+ & 17.53 & 
+\\
+\hline\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+puzzle\_size10\_10.txt & 0.06 & 
+$\times$
+ & 0.06 & 
+$\times$
+\\
+puzzle\_size10\_2.txt & 0.05 & 
+$\times$
+ & 16.22 & 
+\\
+puzzle\_size10\_3.txt & 0.05 & 
+$\times$
+ & 15.13 & 
+\\
+puzzle\_size10\_4.txt & 0.02 & 
+$\times$
+ & 0.02 & 
+$\times$
+\\
+puzzle\_size10\_5.txt & 0.05 & 
+$\times$
+ & 16.3 & 
+\\
+puzzle\_size10\_6.txt & 0.01 & 
+$\times$
+ & 16.61 & 
+\\
+puzzle\_size10\_7.txt & 0.03 & 
+$\times$
+ & 17.36 & 
+\\
+puzzle\_size10\_8.txt & 0.02 & 
+$\times$
+ & 16.94 & 
+\\
+puzzle\_size10\_9.txt & 0.01 & 
+$\times$
+ & 15.89 & 
+\\
+puzzle\_size11\_1.txt & 0.45 & 
+$\times$
+ & 19.37 & 
+\\
+puzzle\_size11\_10.txt & 0.18 & 
+$\times$
+ & 15.99 & 
+\\
+puzzle\_size11\_2.txt & 0.01 & 
+$\times$
+ & 16.49 & 
+\\
+puzzle\_size11\_3.txt & 0.02 & 
+$\times$
+ & 18.41 & 
+\\
+puzzle\_size11\_4.txt & 0.09 & 
+$\times$
+ & 15.48 & 
+\\
+puzzle\_size11\_5.txt & 0.08 & 
+$\times$
+ & 15.25 & 
+\\
+puzzle\_size11\_6.txt & 0.06 & 
+$\times$
+ & 18.35 & 
+\\
+puzzle\_size11\_7.txt & 0.86 & 
+$\times$
+ & 15.83 & 
+\\
+puzzle\_size11\_8.txt & 0.19 & 
+$\times$
+ & 15.3 & 
+\\
+puzzle\_size11\_9.txt & 0.01 & 
+$\times$
+ & 18.49 & 
+\\
+puzzle\_size12\_1.txt & 0.13 & 
+$\times$
+ & 17.23 & 
+\\
+puzzle\_size12\_10.txt & 0.01 & 
+$\times$
+ & 15.12 & 
+\\
+puzzle\_size12\_2.txt & 0.04 & 
+$\times$
+ & 19.98 & 
+\\
+puzzle\_size12\_3.txt & 0.2 & 
+$\times$
+ & 22.35 & 
+\\
+puzzle\_size12\_4.txt & 0.34 & 
+$\times$
+ & 18.76 & 
+\\
+puzzle\_size12\_5.txt & 0.05 & 
+$\times$
+ & 16.57 & 
+\\
+puzzle\_size12\_6.txt & 0.02 & 
+$\times$
+ & 16.62 & 
+\\
+puzzle\_size12\_7.txt & 0.24 & 
+$\times$
+ & 18.38 & 
+\\
+puzzle\_size12\_8.txt & 0.14 & 
+$\times$
+ & 20.48 & 
+\\
+puzzle\_size12\_9.txt & 0.04 & 
+$\times$
+ & 16.56 & 
+\\
+puzzle\_size5\_1.txt & 0.02 & 
+$\times$
+ & 0.05 & 
+$\times$
+\\
+\hline\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+puzzle\_size5\_10.txt & 0.04 & 
+$\times$
+ & 0.91 & 
+$\times$
+\\
+puzzle\_size5\_2.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_3.txt & 0.04 & 
+$\times$
+ & 0.8 & 
+$\times$
+\\
+puzzle\_size5\_4.txt & 0.02 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_5.txt & 0.01 & 
+$\times$
+ & 0.12 & 
+$\times$
+\\
+puzzle\_size5\_6.txt & 0.02 & 
+$\times$
+ & 0.15 & 
+$\times$
+\\
+puzzle\_size5\_7.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size5\_8.txt & 0.06 & 
+$\times$
+ & 0.58 & 
+$\times$
+\\
+puzzle\_size5\_9.txt & 0.06 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size6\_1.txt & 0.01 & 
+$\times$
+ & 0.0 & 
+$\times$
+\\
+puzzle\_size6\_10.txt & 0.03 & 
+$\times$
+ & 0.74 & 
+$\times$
+\\
+puzzle\_size6\_2.txt & 0.04 & 
+$\times$
+ & 4.65 & 
+$\times$
+\\
+puzzle\_size6\_3.txt & 0.03 & 
+$\times$
+ & 1.19 & 
+$\times$
+\\
+puzzle\_size6\_4.txt & 0.3 & 
+$\times$
+ & 0.32 & 
+$\times$
+\\
+puzzle\_size6\_5.txt & 0.02 & 
+$\times$
+ & 0.19 & 
+$\times$
+\\
+puzzle\_size6\_6.txt & 0.06 & 
+$\times$
+ & 6.55 & 
+$\times$
+\\
+puzzle\_size6\_7.txt & 0.04 & 
+$\times$
+ & 2.95 & 
+$\times$
+\\
+puzzle\_size6\_8.txt & 0.04 & 
+$\times$
+ & 7.91 & 
+$\times$
+\\
+puzzle\_size6\_9.txt & 0.03 & 
+$\times$
+ & 1.3 & 
+$\times$
+\\
+puzzle\_size7\_1.txt & 0.02 & 
+$\times$
+ & 14.43 & 
+$\times$
+\\
+puzzle\_size7\_10.txt & 0.01 & 
+$\times$
+ & 9.3 & 
+$\times$
+\\
+puzzle\_size7\_2.txt & 0.12 & 
+$\times$
+ & 6.12 & 
+$\times$
+\\
+puzzle\_size7\_3.txt & 0.04 & 
+$\times$
+ & 15.06 & 
+\\
+puzzle\_size7\_4.txt & 0.08 & 
+$\times$
+ & 15.1 & 
+\\
+puzzle\_size7\_5.txt & 0.01 & 
+$\times$
+ & 15.23 & 
+\\
+puzzle\_size7\_6.txt & 0.02 & 
+$\times$
+ & 2.75 & 
+$\times$
+\\
+puzzle\_size7\_7.txt & 0.02 & 
+$\times$
+ & 5.02 & 
+$\times$
+\\
+puzzle\_size7\_8.txt & 0.02 & 
+$\times$
+ & 15.09 & 
+\\
+puzzle\_size7\_9.txt & 0.01 & 
+$\times$
+ & 0.88 & 
+$\times$
+\\
+puzzle\_size8\_1.txt & 0.11 & 
+$\times$
+ & 15.06 & 
+\\
+\hline\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.4} 
+\begin{tabular}{lrrrr}
+	\hline
+ & \multicolumn{2}{c}{\textbf{cplex}} & \multicolumn{2}{c}{\textbf{heuristique}}\\
+\textbf{Instance}  & \textbf{Temps (s)} & \textbf{Optimal ?}  & \textbf{Temps (s)} & \textbf{Optimal ?} \\\hline
+
+puzzle\_size8\_10.txt & 0.1 & 
+$\times$
+ & 11.41 & 
+$\times$
+\\
+puzzle\_size8\_2.txt & 0.04 & 
+$\times$
+ & 15.65 & 
+\\
+puzzle\_size8\_3.txt & 0.01 & 
+$\times$
+ & 15.9 & 
+\\
+puzzle\_size8\_4.txt & 0.01 & 
+$\times$
+ & 15.42 & 
+\\
+puzzle\_size8\_5.txt & 0.02 & 
+$\times$
+ & 17.86 & 
+\\
+puzzle\_size8\_6.txt & 0.01 & 
+$\times$
+ & 15.69 & 
+\\
+puzzle\_size8\_7.txt & 0.04 & 
+$\times$
+ & 15.56 & 
+\\
+puzzle\_size8\_8.txt & 0.01 & 
+$\times$
+ & 16.03 & 
+\\
+puzzle\_size8\_9.txt & 0.05 & 
+$\times$
+ & 15.43 & 
+\\
+puzzle\_size9\_1.txt & 0.13 & 
+$\times$
+ & 15.1 & 
+\\
+puzzle\_size9\_10.txt & 0.06 & 
+$\times$
+ & 15.53 & 
+\\
+puzzle\_size9\_2.txt & 0.02 & 
+$\times$
+ & 15.61 & 
+\\
+puzzle\_size9\_3.txt & 1.76 & 
+$\times$
+ & 16.16 & 
+\\
+puzzle\_size9\_4.txt & 0.02 & 
+$\times$
+ & 16.54 & 
+\\
+puzzle\_size9\_5.txt & 0.02 & 
+$\times$
+ & 16.46 & 
+\\
+puzzle\_size9\_6.txt & 0.01 & 
+$\times$
+ & 15.42 & 
+\\
+puzzle\_size9\_7.txt & 0.01 & 
+$\times$
+ & 16.26 & 
+\\
+puzzle\_size9\_8.txt & 0.02 & 
+$\times$
+ & 15.8 & 
+\\
+puzzle\_size9\_9.txt & 0.1 & 
+$\times$
+ & 16.67 & 
+\\
+\hline\end{tabular}
+\end{center}
+
+
+\end{document}
